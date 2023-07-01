@@ -1,0 +1,71 @@
+﻿@model IEnumerable<InterviewTasks.Models.MemberModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Members</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create"> Back for Create New</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            @* <th>
+            @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th class="text-primary">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="text-primary">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            
+            <th class="text-primary">
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th class="text-primary">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th class="text-primary">
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th class="text-primary">Edit</th>
+            <th class="text-primary">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Photo)*@
+                    <img src="~/Images/rohitmane.jpeg" class="card-img-top rounded" height="60" width="30" asp-append-version="true" />
+                </td>
+                <td>
+                    <span class="btn btn-warning text-decoration-none"> @Html.ActionLink("Edit", "Edit", new {  id=item.Id  } ) </span>
+                    
+                </td>
+                <td>
+                    <span class="btn btn-danger text-decoration-none">@Html.ActionLink("Delete", "Delete", new {  id=item.Id  })</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
